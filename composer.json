@@ -1,0 +1,23 @@
+{
+    "name": "kern046/changelog-parser",
+    "description": "PHP library used to parse a CHANGELOG.md file and return JSON output",
+    "type": "library",
+    "keywords": ["changelog", "version"],
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "Axel Venet",
+            "email": "kern046@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "kern046@gmail.com"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "ChangelogParser\\": "src/"
+        }
+    }
+}
