@@ -15,6 +15,23 @@ abstract class Driver {
     }
     
     /**
+     * @param string $storagePath
+     * @return \ChangelogParser\Driver\Driver
+     */
+    public function setStoragePath($storagePath) {
+        $this->storagePath = $storagePath;
+        
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStoragePath() {
+        return $this->storagePath;
+    }
+    
+    /**
      * @param array $data
      * @return string
      */
