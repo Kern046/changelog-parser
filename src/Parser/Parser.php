@@ -10,6 +10,10 @@ class Parser {
     /** @var string **/
     protected $currentReleasePart;
     
+    /**
+     * @param string $filepath
+     * @return array
+     */
     public function parse($filepath) {
         foreach($this->parseFile($filepath) as $line) {
             $this->parseLine($line);
@@ -17,6 +21,10 @@ class Parser {
         return $this->releases;
     }
     
+    /**
+     * @param string $filepath
+     * @throws \RuntimeException
+     */
     private function parseFile($filepath) {
         if(($file = fopen($filepath, 'r')) === false) {
             throw new \RuntimeException("The file $filepath does not exist");
@@ -28,6 +36,9 @@ class Parser {
         fclose($file);
     }
     
+    /**
+     * @param string $line
+     */
     private function parseLine($line) {
         switch($line{0}) {
             case '#':
@@ -39,6 +50,9 @@ class Parser {
         }
     }
     
+    /**
+     * @param string $line
+     */
     private function parseTitle($line) {
         for($i = 0; $i < 3; ++$i) {
             if($line{$i} !== '#') {
@@ -49,7 +63,7 @@ class Parser {
             case 2:
                 $parts = explode('-', $line);
                 if(count($parts) === 1) {
-                    $this->currentRelease = trim(substr($line, 2));
+                    $this->currentRelease = str_replace(['[', ']'], '', trim(substr($line, 2)));
                     break;
                 }
                 $this->currentRelease = trim(substr($parts[0], 2));
@@ -63,6 +77,9 @@ class Parser {
         }
     }
     
+    /**
+     * @param string $line
+     */
     private function parseItem($line) {
         $this->releases[$this->currentRelease]['items'][$this->currentReleasePart][] = trim(substr($line,1));
     }
