@@ -1,0 +1,6 @@
+/nbproject
+/vendor
+/data/changelog.*
+composer.lock
+/tests/fixtures/storage/*
+!/tests/fixtures/storage/.gitkeep
