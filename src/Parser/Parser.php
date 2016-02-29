@@ -66,7 +66,7 @@ class Parser {
                     $this->currentRelease = str_replace(['[', ']'], '', trim(substr($line, 2)));
                     break;
                 }
-                $this->currentRelease = trim(substr($parts[0], 2));
+                $this->currentRelease = str_replace(['[', ']'], '', trim(substr($parts[0], 2)));
                 unset($parts[0]);
                 $this->releases[$this->currentRelease]['date'] = trim(implode('-', $parts));
                 
