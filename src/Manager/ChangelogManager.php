@@ -5,6 +5,25 @@ namespace ChangelogParser\Manager;
 class ChangelogManager {
     /** @var \ChangelogParser\Driver\Driver **/
     protected $driver;
+    /** @var string **/
+    protected $storagePath;
+    
+    /**
+     * @param string $storagePath
+     * @return \ChangelogParser\Driver\Driver
+     */
+    public function setStoragePath($storagePath) {
+        $this->storagePath = $storagePath;
+        
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStoragePath() {
+        return $this->storagePath;
+    }
     
     /**
      * @param string $filepath
@@ -29,5 +48,8 @@ class ChangelogManager {
         }
         
         $this->driver = new $driverClass();
+        if($this->storagePath !== null) {
+            $this->driver->setStoragePath($this->storagePath);
+        }
     }
 }
