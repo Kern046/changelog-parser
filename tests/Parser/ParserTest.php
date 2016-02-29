@@ -17,7 +17,7 @@ class ParserTest extends \PHPUnit_Framework_TestCase {
         
         $this->assertInternalType('array', $data);
         $this->assertCount(3, $data);
-        $this->assertArrayHasKey('Unreleased', $data);
+        $this->assertArrayHasKey('unreleased', $data);
         $this->assertArrayHasKey('date', $data['0.3.0']);
     }
 }

@@ -63,10 +63,10 @@ class Parser {
             case 2:
                 $parts = explode('-', $line);
                 if(count($parts) === 1) {
-                    $this->currentRelease = str_replace(['[', ']'], '', trim(substr($line, 2)));
+                    $this->currentRelease = $this->formatReleaseVersion($line);
                     break;
                 }
-                $this->currentRelease = str_replace(['[', ']'], '', trim(substr($parts[0], 2)));
+                $this->currentRelease = $this->formatReleaseVersion($parts[0]);
                 unset($parts[0]);
                 $this->releases[$this->currentRelease]['date'] = trim(implode('-', $parts));
                 
@@ -75,6 +75,14 @@ class Parser {
                 $this->currentReleasePart = trim(substr($line, 3));
                 break;
         }
+    }
+    
+    /**
+     * @param string $releaseVersion
+     * @return string
+     */
+    private function formatReleaseVersion($releaseVersion) {
+        return strtolower(str_replace(['[', ']'], '', trim(substr($releaseVersion, 2))));
     }
     
     /**

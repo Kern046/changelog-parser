@@ -38,6 +38,11 @@ abstract class Driver {
     abstract protected function formatData($data);
     
     /**
+     * @return mixed
+     */
+    abstract protected function getLastVersion();
+    
+    /**
      * @param string $filepath
      */
     public function convert($filepath) {

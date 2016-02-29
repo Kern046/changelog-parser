@@ -2,7 +2,7 @@
 
 require(dirname(__DIR__) . '/vendor/autoload.php');
 
-use ChangelogParser\Driver\JsonDriver;
+use ChangelogParser\Manager\ChangelogManager;
 
-$parser = new JsonDriver();
-$parser->convert(__DIR__ . '/EXAMPLE_CHANGELOG.md');
+$manager = new ChangelogManager();
+echo $manager->getLastVersion(__DIR__ . '/EXAMPLE_CHANGELOG.md') . "\n";
