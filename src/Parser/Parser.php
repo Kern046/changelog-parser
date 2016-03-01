@@ -72,7 +72,7 @@ class Parser {
                 
                 break;
             case 3:
-                $this->currentReleasePart = trim(substr($line, 3));
+                $this->currentReleasePart = strtolower(trim(substr($line, 3)));
                 break;
         }
     }
