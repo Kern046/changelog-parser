@@ -25,4 +25,56 @@ class JsonDriverTest extends \PHPUnit_Framework_TestCase {
         $this->assertJson($fileContent);
         $this->assertCount(3, json_decode($fileContent, true));
     }
+    
+    public function testGetLastVersion() {
+        $lastVersion = $this->driver->getLastVersion();
+        
+        $this->assertJson($lastVersion);
+        $this->assertEquals([
+            '0.3.0' => [
+                'date' => '2015-12-03',
+                'items' => [
+                    'Added'=> [
+                        'RU translation from @aishek.',
+                        'pt-BR translation from @tallesl.',
+                        'es-ES translation from @ZeliosAriex.'
+                    ]
+                ]
+            ]
+        ], json_decode($lastVersion, true));
+    }
+    
+    public function testGetAllVersions() {
+        $versions = $this->driver->getAllVersions();
+        
+        $this->assertJson($versions);
+        $this->assertEquals([
+            'unreleased' => [
+                'items' => [
+                    'Added' => [
+                        'zh-CN and zh-TW translations from @tianshuo.',
+                        'de translation from @mpbzh.'
+                    ]
+                ]
+            ],
+            '0.3.0' => [
+                'date' => '2015-12-03',
+                'items' => [
+                    'Added'=> [
+                        'RU translation from @aishek.',
+                        'pt-BR translation from @tallesl.',
+                        'es-ES translation from @ZeliosAriex.'
+                    ]
+                ]
+            ],
+            '0.2.0' => [
+                'date' => '2015-10-06',
+                'items' => [
+                    'Changed' => [
+                        'Remove exclusionary mentions of "open source" since this project can benefit'
+                    ]
+                ]
+            ]
+        ], json_decode($versions, true));
+    }
 }
