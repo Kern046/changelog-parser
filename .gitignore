@@ -1,6 +1,8 @@
 /nbproject
 /vendor
 /data/changelog.*
+/data/cache/*
+!/data/cache/.gitkeep
 composer.lock
 /tests/fixtures/storage/*
 !/tests/fixtures/storage/.gitkeep
