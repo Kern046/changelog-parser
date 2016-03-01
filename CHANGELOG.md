@@ -1,3 +1,10 @@
+## Unreleased
+### Added
+- Cache manager unit tests
+
+### Changed
+- Cache files format
+
 ## [0.1.2] - 2016-03-01
 ### Added
 - Packagist badges

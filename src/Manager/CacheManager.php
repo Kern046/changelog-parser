@@ -38,7 +38,7 @@ class CacheManager {
      */
     public function getCache($changelogFile, $cacheFile) {
         $path = $this->generateCachePath($changelogFile, $cacheFile);
-        if(!is_file($path) || ($generationTime = filemtime($path)) === false || $generationTime < (time() - $this->cacheTime)) {
+        if (!is_file($path) || ($generationTime = filemtime($path)) === false || $generationTime < (time() - $this->cacheTime)) {
             clearstatcache(true, $path);
             return false;
         }
@@ -52,8 +52,8 @@ class CacheManager {
      * @param string $cacheFile
      * @return string
      */
-    public function generateCachePath($changelogFile, $cacheFile) {
-        $changelogSignature = str_replace([':', ' ', '/', '\\'], '-', strtolower(basename(dirname($changelogFile)) . '-' . basename($changelogFile, 'md')));
+    private function generateCachePath($changelogFile, $cacheFile) {
+        $changelogSignature = str_replace([':', ' ', '/', '\\'], '-', strtolower(basename(dirname($changelogFile)) . '-' . basename($changelogFile, '.md')));
         
         return realpath(__DIR__ . "/../../data/cache"). '/' . $changelogSignature . "-$cacheFile.cache";
     }
