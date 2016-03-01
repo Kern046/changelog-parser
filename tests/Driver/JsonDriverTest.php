@@ -34,7 +34,7 @@ class JsonDriverTest extends \PHPUnit_Framework_TestCase {
             '0.3.0' => [
                 'date' => '2015-12-03',
                 'items' => [
-                    'Added'=> [
+                    'added'=> [
                         'RU translation from @aishek.',
                         'pt-BR translation from @tallesl.',
                         'es-ES translation from @ZeliosAriex.'
@@ -51,7 +51,7 @@ class JsonDriverTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals([
             'unreleased' => [
                 'items' => [
-                    'Added' => [
+                    'added' => [
                         'zh-CN and zh-TW translations from @tianshuo.',
                         'de translation from @mpbzh.'
                     ]
@@ -60,7 +60,7 @@ class JsonDriverTest extends \PHPUnit_Framework_TestCase {
             '0.3.0' => [
                 'date' => '2015-12-03',
                 'items' => [
-                    'Added'=> [
+                    'added'=> [
                         'RU translation from @aishek.',
                         'pt-BR translation from @tallesl.',
                         'es-ES translation from @ZeliosAriex.'
@@ -70,7 +70,7 @@ class JsonDriverTest extends \PHPUnit_Framework_TestCase {
             '0.2.0' => [
                 'date' => '2015-10-06',
                 'items' => [
-                    'Changed' => [
+                    'changed' => [
                         'Remove exclusionary mentions of "open source" since this project can benefit'
                     ]
                 ]
