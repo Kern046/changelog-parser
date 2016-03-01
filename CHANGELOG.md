@@ -1,4 +1,4 @@
-## [Unreleased]
+## [0.1.1] - 2016-03-01
 ### Added
 - Travis-CI configuration file
 - Scrutinizer-CI configuration file
