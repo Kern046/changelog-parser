@@ -12,6 +12,9 @@
             "role": "Developer"
         }
     ],
+    "require": {
+        "php": ">=5.5.9"
+    },
     "support": {
         "email": "kern046@gmail.com"
     },
