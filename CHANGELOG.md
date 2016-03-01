@@ -2,6 +2,9 @@
 ### Added
 - Packagist badges
 - Scrutinizer badges
+- Cache manager
+- Configurable cache validity time
+- Multiple changelog files caching
 
 ### Changed
 - Release item keys format
