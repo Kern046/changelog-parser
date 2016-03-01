@@ -1,6 +1,14 @@
 Changelog Parser
 ===============
 
+[![Latest Stable Version](https://poser.pugx.org/kern046/changelog-parser/v/stable)](https://packagist.org/packages/kern046/changelog-parser)
+[![Latest Unstable Version](https://poser.pugx.org/kern046/changelog-parser/v/unstable)](https://packagist.org/packages/kern046/changelog-parser)
+[![Build Status](https://scrutinizer-ci.com/g/Kern046/changelog-parser/badges/build.png?b=master)](https://scrutinizer-ci.com/g/Kern046/changelog-parser/build-status/master)
+[![Code Coverage](https://scrutinizer-ci.com/g/Kern046/changelog-parser/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Kern046/changelog-parser/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Kern046/changelog-parser/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Kern046/changelog-parser/?branch=master)
+[![Total Downloads](https://poser.pugx.org/kern046/changelog-parser/downloads)](https://packagist.org/packages/kern046/changelog-parser)
+[![License](https://poser.pugx.org/kern046/changelog-parser/license)](https://packagist.org/packages/kern046/changelog-parser)
+
 Introduction
 ------------
 
