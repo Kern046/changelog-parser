@@ -19,7 +19,7 @@ class JsonDriver extends Driver {
      * {@inheritdoc}
      */
     public final function getLastVersion() {
-        $data = json_decode(file_get_contents($this->storagePath), true);
+        $data = json_decode($this->getAllVersions(), true);
         
         foreach($data as $version => $changelog) {
             if($version === 'unreleased') {
@@ -27,5 +27,12 @@ class JsonDriver extends Driver {
             }
             return json_encode([$version => $changelog]);
         }
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public final function getAllVersions() {
+        return file_get_contents($this->storagePath);
     }
 }
