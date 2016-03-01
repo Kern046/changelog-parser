@@ -81,4 +81,11 @@ class ChangelogManager {
             $this->driver->setStoragePath($this->storagePath);
         }
     }
+    
+    /**
+     * @return \ChangelogParser\Manager\CacheManager
+     */
+    public function getCacheManager() {
+        return $this->cacheManager;
+    }
 }

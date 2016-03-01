@@ -7,6 +7,22 @@ class CacheManager {
     protected $cacheTime = 3600;
     
     /**
+     * Time in seconds
+     * 
+     * @param int $cacheTime
+     */
+    public function setCacheTime($cacheTime) {
+        $this->cacheTime = $cacheTime;
+    }
+    
+    /**
+     * @return int
+     */
+    public function getCacheTime() {
+        return $this->cacheTime;
+    }
+    
+    /**
      * @param string $file
      * @param string $content
      */
