@@ -51,3 +51,16 @@ To get all data contained in the changelog file, use the following method :
 // The second parameter is optional, default is 'json'
 $changelogManager->getAllVersions('CHANGELOG.md', 'json');
 ```
+
+The results of these functions are cached.
+
+The default cache validity time is one hour.
+
+You can modify it using the following way :
+
+```php
+$cacheManager = $changelogManager->getCacheManager();
+// The first argument is the validity time in seconds
+// In the current example, the cache validity time is one day
+$cacheManager->setCacheTime(60 * 60 * 24);
+```
