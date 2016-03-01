@@ -1,3 +1,7 @@
+## [Unreleased]
+### Added
+- Travis-CI configuration file
+
 ## [0.1.0] - 2016-03-01
 ### Added
 - README file
