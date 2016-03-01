@@ -1,4 +1,4 @@
-## [Unreleased]
+## [0.1.0] - 2016-03-01
 ### Added
 - README file
 - Driver abstract class
