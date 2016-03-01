@@ -5,8 +5,14 @@ namespace ChangelogParser\Manager;
 class ChangelogManager {
     /** @var \ChangelogParser\Driver\Driver **/
     protected $driver;
+    /** @var \ChangelogParser\Manager\CacheManager **/
+    protected $cacheManager;
     /** @var string **/
     protected $storagePath;
+    
+    public function __construct() {
+        $this->cacheManager = new CacheManager();
+    }
     
     /**
      * @param string $storagePath
@@ -31,9 +37,15 @@ class ChangelogManager {
      * @return mixed
      */
     public function getLastVersion($filepath, $format = 'json') {
+        $cacheFile = "last-version-$format";
+        if(($cache = $this->cacheManager->getCache($filepath, $cacheFile)) !== false) {
+            return $cache;
+        }
         $this->initializeDriver($format);
         $this->driver->convert($filepath);
-        return $this->driver->getLastVersion();
+        $content = $this->driver->getLastVersion();
+        $this->cacheManager->generateCache($filepath, $cacheFile, $content);
+        return $content;
     }
     
     /**
@@ -42,9 +54,15 @@ class ChangelogManager {
      * @return mixed
      */
     public function getAllVersions($filepath, $format = 'json') {
+        $cacheFile = "all-versions-$format";
+        if(($cache = $this->cacheManager->getCache($filepath, $cacheFile)) !== false) {
+            return $cache;
+        }
         $this->initializeDriver($format);
         $this->driver->convert($filepath);
-        return $this->driver->getAllVersions();
+        $content = $this->driver->getAllVersions();
+        $this->cacheManager->generateCache($filepath, $cacheFile, $content);
+        return $content;
     }
     
     /**
@@ -62,5 +80,12 @@ class ChangelogManager {
         if($this->storagePath !== null) {
             $this->driver->setStoragePath($this->storagePath);
         }
+    }
+    
+    /**
+     * @return \ChangelogParser\Manager\CacheManager
+     */
+    public function getCacheManager() {
+        return $this->cacheManager;
     }
 }
