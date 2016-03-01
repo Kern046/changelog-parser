@@ -37,7 +37,7 @@ class ChangelogManager {
      * @return mixed
      */
     public function getLastVersion($filepath, $format = 'json') {
-        $cacheFile = "last-version-$format";
+        $cacheFile = "last-version.$format";
         if(($cache = $this->cacheManager->getCache($filepath, $cacheFile)) !== false) {
             return $cache;
         }
@@ -54,7 +54,7 @@ class ChangelogManager {
      * @return mixed
      */
     public function getAllVersions($filepath, $format = 'json') {
-        $cacheFile = "all-versions-$format";
+        $cacheFile = "all-versions.$format";
         if(($cache = $this->cacheManager->getCache($filepath, $cacheFile)) !== false) {
             return $cache;
         }
