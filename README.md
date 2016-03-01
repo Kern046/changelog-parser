@@ -36,3 +36,10 @@ To get the last version data of your changelog file, write the following code :
 // The second parameter is optional, default is 'json'
 $changelogManager->getLastVersion('CHANGELOG.md', 'json');
 ```
+
+To get all data contained in the changelog file, use the following method :
+
+```php
+// The second parameter is optional, default is 'json'
+$changelogManager->getAllVersions('CHANGELOG.md', 'json');
+```

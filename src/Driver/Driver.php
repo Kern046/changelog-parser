@@ -43,6 +43,11 @@ abstract class Driver {
     abstract protected function getLastVersion();
     
     /**
+     * @return mixed
+     */
+    abstract protected function getAllVersions();
+    
+    /**
      * @param string $filepath
      */
     public function convert($filepath) {

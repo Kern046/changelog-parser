@@ -37,6 +37,17 @@ class ChangelogManager {
     }
     
     /**
+     * @param string $filepath
+     * @param string $format
+     * @return mixed
+     */
+    public function getAllVersions($filepath, $format = 'json') {
+        $this->initializeDriver($format);
+        $this->driver->convert($filepath);
+        return $this->driver->getAllVersions();
+    }
+    
+    /**
      * @param string $format
      * @throws \InvalidArgumentException
      */
