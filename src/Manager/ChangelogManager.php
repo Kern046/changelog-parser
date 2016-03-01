@@ -38,13 +38,13 @@ class ChangelogManager {
      */
     public function getLastVersion($filepath, $format = 'json') {
         $cacheFile = "last-version-$format";
-        if(($cache = $this->cacheManager->getCache($cacheFile)) !== false) {
+        if(($cache = $this->cacheManager->getCache($filepath, $cacheFile)) !== false) {
             return $cache;
         }
         $this->initializeDriver($format);
         $this->driver->convert($filepath);
         $content = $this->driver->getLastVersion();
-        $this->cacheManager->generateCache($cacheFile, $content);
+        $this->cacheManager->generateCache($filepath, $cacheFile, $content);
         return $content;
     }
     
@@ -55,13 +55,13 @@ class ChangelogManager {
      */
     public function getAllVersions($filepath, $format = 'json') {
         $cacheFile = "all-versions-$format";
-        if(($cache = $this->cacheManager->getCache($cacheFile)) !== false) {
+        if(($cache = $this->cacheManager->getCache($filepath, $cacheFile)) !== false) {
             return $cache;
         }
         $this->initializeDriver($format);
         $this->driver->convert($filepath);
         $content = $this->driver->getAllVersions();
-        $this->cacheManager->generateCache($cacheFile, $content);
+        $this->cacheManager->generateCache($filepath, $cacheFile, $content);
         return $content;
     }
     
