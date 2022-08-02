@@ -55,7 +55,7 @@ class Parser {
      */
     private function parseTitle($line) {
         for($i = 0; $i < 3; ++$i) {
-            if($line{$i} !== '#') {
+            if($line[$i] !== '#') {
                 break;
             }
         }
