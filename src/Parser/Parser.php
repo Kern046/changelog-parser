@@ -40,7 +40,7 @@ class Parser {
      * @param string $line
      */
     private function parseLine($line) {
-        switch($line{0}) {
+        switch($line[0]) {
             case '#':
                 $this->parseTitle($line);
                 break;
